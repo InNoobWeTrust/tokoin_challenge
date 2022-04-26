@@ -1,0 +1,6 @@
+# coding: utf-8
+from os import curdir
+curdir
+from os import path, curdir
+path.join(curdir, 'config', 'default.toml')
+%save test
