@@ -19,6 +19,16 @@ def value_parser(value: str) -> Union[str, int, bool]:
         return False
     raise Exception(f'Value parsing exception: {res}')
 
+def can_continue_parsing(file_handle: TextIOWrapper, terminator: str):
+    line = peekline(file_handle)
+    # Fallback termination condition when reaching end of file
+    if not len(line):
+        return False
+    # Else just continue until terminator is found
+    if terminator in line:
+        return False
+    return True
+
 BRACKET_PAIRS = {
     '{': '}',
     '[': ']',
@@ -26,7 +36,7 @@ BRACKET_PAIRS = {
 
 def collect_obj(file_handle: TextIOWrapper, terminator: str = '}') -> Union[Dict, List]:
     obj: Union[Dict,List] = {} if terminator == '}' else []
-    while terminator not in peekline(file_handle) and len(peekline(file_handle)):
+    while can_continue_parsing(file_handle, terminator):
         line = file_handle.readline().strip()
         segments = line.split(': ')
         try:
