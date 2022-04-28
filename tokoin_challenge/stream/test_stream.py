@@ -1,5 +1,6 @@
 from io import BytesIO, TextIOWrapper
-from unittest.mock import MagicMock, mock_open, patch
+import json
+from unittest.mock import mock_open, patch
 
 from tokoin_challenge.stream.data_stream import obj_streamer
 
@@ -40,7 +41,9 @@ m.side_effect = lambda _file_name, _mode: TextIOWrapper(BytesIO(bytes(dummy_data
 
 @patch('builtins.open', m)
 def test_obj_streamer():
-    assert next(obj_streamer('')) == {
+    obj = next(obj_streamer(''))
+    print(json.dumps(obj))
+    assert obj == {
     "_id": 1,
     "url": "http://initech.tokoin.io.com/api/v2/users/1.json",
     "external_id": "74341f74-9c79-49d5-9611-87ef9b6eb75f",
