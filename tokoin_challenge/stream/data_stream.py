@@ -1,4 +1,5 @@
 from os import PathLike
+from typing import Dict
 
 from tokoin_challenge.file_ops.peek import peekline
 from tokoin_challenge.stream.obj_collector import collect_obj
@@ -11,4 +12,6 @@ def obj_streamer(data_path: str):
             if '{' in line:
                 yield collect_obj(f)
 
-
+def get_fields(data_path: str):
+    obj: Dict = next(obj_streamer(data_path)) # We know this is absolutely a dict
+    return list(obj.keys())

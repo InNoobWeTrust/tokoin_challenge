@@ -22,7 +22,7 @@ Data searching challenge.
 
 ```python3
 poetry install
-poetry run pytest -s
+poetry run pytest -s -v
 ```
 
 ## Possible improvements:
