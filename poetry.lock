@@ -184,6 +184,17 @@ pydantic = ">=1.7,<2.0"
 pygls = ">=0.11.1,<0.12.0"
 
 [[package]]
+name = "jsonlint"
+version = "0.1"
+description = "A flexible json validation for python web development."
+category = "dev"
+optional = false
+python-versions = "*"
+
+[package.extras]
+Locale = ["Babel (>=1.3)"]
+
+[[package]]
 name = "matplotlib-inline"
 version = "0.1.3"
 description = "Inline Matplotlib backend for Jupyter"
@@ -278,6 +289,14 @@ python-versions = ">=3.7"
 [package.extras]
 docs = ["furo (>=2021.7.5b38)", "proselint (>=0.10.2)", "sphinx-autodoc-typehints (>=1.12)", "sphinx (>=4)"]
 test = ["appdirs (==1.4.4)", "pytest-cov (>=2.7)", "pytest-mock (>=3.6)", "pytest (>=6)"]
+
+[[package]]
+name = "prettier"
+version = "0.0.7"
+description = "Properly pprint of nested objects"
+category = "dev"
+optional = false
+python-versions = "*"
 
 [[package]]
 name = "prompt-toolkit"
@@ -471,7 +490,7 @@ python-versions = "*"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "6f2c6acf51490e2d753bcfa0b55af4ee6d5e224d50ed653b46bca5f41b2fdeb9"
+content-hash = "35ccfcc1b3a0bb252d90fa7aaf23e9f75bc8493d49b3b51ad4a74f0399964274"
 
 [metadata.files]
 appnope = [
@@ -551,6 +570,10 @@ jedi-language-server = [
     {file = "jedi-language-server-0.35.1.tar.gz", hash = "sha256:e31185e79e1abdcc5a077305cb24cd3a44798a2db525045b40f6b647dc5bdf08"},
     {file = "jedi_language_server-0.35.1-py3-none-any.whl", hash = "sha256:532c16a9199d902bdc88ca991da176fe177f0b3019b826b50bf568a0b0081167"},
 ]
+jsonlint = [
+    {file = "jsonlint-0.1-py2.py3-none-any.whl", hash = "sha256:56f4e49ecb1c91d73dd3b0c17d2b50d3c6bc8358901962dbf81551688be84593"},
+    {file = "jsonlint-0.1.tar.gz", hash = "sha256:0728ea2827f274ff96a1484b3f5ec5ef7b0954bf7b875ba4a842d8ddf5c74860"},
+]
 matplotlib-inline = [
     {file = "matplotlib-inline-0.1.3.tar.gz", hash = "sha256:a04bfba22e0d1395479f866853ec1ee28eea1485c1d69a6faf00dc3e24ff34ee"},
     {file = "matplotlib_inline-0.1.3-py3-none-any.whl", hash = "sha256:aed605ba3b72462d64d475a21a9296f400a19c4f74a31b59103d2a99ffd5aa5c"},
@@ -607,6 +630,10 @@ pickleshare = [
 platformdirs = [
     {file = "platformdirs-2.5.2-py3-none-any.whl", hash = "sha256:027d8e83a2d7de06bbac4e5ef7e023c02b863d7ea5d079477e722bb41ab25788"},
     {file = "platformdirs-2.5.2.tar.gz", hash = "sha256:58c8abb07dcb441e6ee4b11d8df0ac856038f944ab98b7be6b27b2a3c7feef19"},
+]
+prettier = [
+    {file = "prettier-0.0.7-py3-none-any.whl", hash = "sha256:20e76791de41cafe481328dd49552303f29ca192151cee1b120c26f66cae9bfc"},
+    {file = "prettier-0.0.7.tar.gz", hash = "sha256:6c34b8cd09fd9c8956c05d6395ea3f575e0122dce494ba57685c07065abed427"},
 ]
 prompt-toolkit = [
     {file = "prompt_toolkit-3.0.29-py3-none-any.whl", hash = "sha256:62291dad495e665fca0bda814e342c69952086afb0f4094d0893d357e5c78752"},

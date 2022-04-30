@@ -5,7 +5,7 @@ description = ""
 authors = ["InNoobWeTrust <vu.truong.16193@gmail.com>"]
 
 [tool.poetry.scripts]
-search = "tokoin_challenge.search:main"
+simple = "tokoin_challenge.main:main"
 
 [tool.poetry.dependencies]
 python = "^3.8"
@@ -20,6 +20,8 @@ ipython = "^8.2.0"
 pyright = "^1.1.241"
 autopep8 = "^1.6.0"
 yapf = "^0.32.0"
+jsonlint = "^0.1"
+prettier = "^0.0.7"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
