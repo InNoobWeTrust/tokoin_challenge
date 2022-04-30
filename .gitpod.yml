@@ -1,11 +1,7 @@
 # Commands to start on workspace startup
 tasks:
   - init: |
-      pip install pipx
-      pipx install poetry
-      pipx run poetry install
-    command: pipx run pytest
-# Ports to expose on workspace startup
-#ports:
-#  - port: 8000
-#    onOpen: open-preview
+      pip install poetry pytest
+      poetry install
+    command: poetry run pytest -s -v
+
