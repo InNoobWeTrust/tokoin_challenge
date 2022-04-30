@@ -13,3 +13,8 @@ def read_config(path: str or PathLike = config_path) -> Dict[str, str]:
             data[k] = v.strip()[1:-1]
 
     return data
+
+CONFIG = read_config()
+USER_CONFIG_KEY = 'User'
+TICKET_CONFIG_KEY = 'Ticket'
+ORG_CONFIG_KEY = 'Organization'

@@ -43,6 +43,41 @@ optional arguments:
                         Field to search for
 ```
 
+If you just provide the mode, the command will suggest searchable fields for you to choose
+
+```shell
+❯ poetry run search -m user
+
+Successfully set up prettification!
+> All function returns will now be pretty-printed,
+
+'[245 italic]Including [/italic 210]Markup!'
+
+'Please provide search term!'
+'For fine grained, you can filter by the specific fields below:'
+[
+  '_id',
+  'url',
+  'external_id',
+  'name',
+  'alias',
+  'created_at',
+  'active',
+  'verified',
+  'shared',
+  'locale',
+  'timezone',
+  'last_login_at',
+  'email',
+  'phone',
+  'signature',
+  'organization_id',
+  'tags',
+  'suspended',
+  'role',
+]
+```
+
 ## Commandline interface (TUI)
 - For fantastic TUI, [pytermgui](https://github.com/bczsalba/pytermgui) is chosen.
 

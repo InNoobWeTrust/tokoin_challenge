@@ -1,8 +1,11 @@
 from argparse import ArgumentParser, Namespace
-from typing import Callable, Dict
+from typing import Callable, Dict, List
 from pytermgui.pretty import print
+from tokoin_challenge import config
+from tokoin_challenge.config.config import CONFIG, ORG_CONFIG_KEY, TICKET_CONFIG_KEY, USER_CONFIG_KEY
 from tokoin_challenge.matcher.obj_deep_search import is_deep_contain, is_field_contain
 from tokoin_challenge.search.search_user import fill_org_meta_data, fill_ticket_metadata, fill_user_metadata, search_org_stream, search_ticket_stream, search_user_stream
+from tokoin_challenge.stream.data_stream import get_fields
 
 
 def parse_arguments() -> Namespace:
@@ -10,7 +13,7 @@ def parse_arguments() -> Namespace:
 
     parser = ArgumentParser()
     parser.add_argument('-m', '--mode', help='Search mode', choices=['user', 'ticket', 'organization'], required=True)
-    parser.add_argument('-s', '--term', help='Search term', required=True)
+    parser.add_argument('-s', '--term', help='Search term')
     parser.add_argument('-f', '--field', help='Field to search for')
 
     return parser.parse_args()
@@ -60,12 +63,23 @@ def search_organization(search_term: str, field: str):
     for org in search_org_stream(matcher):
         print(fill_org_meta_data(org))
 
-MODE_CALLBACK: Dict[str, Callable[[str, str],None]] = {
+MODE_CALLBACK: Dict[str, Callable[[str, str], None]] = {
     'user': search_user,
     'ticket': search_ticket,
     'organization': search_organization,
 }
 
+DESCRIBE_CALLBACKS: Dict[str, Callable[[], List[str]]] = {
+    'user': lambda: get_fields(CONFIG[USER_CONFIG_KEY]),
+    'ticket': lambda: get_fields(CONFIG[TICKET_CONFIG_KEY]),
+    'organization': lambda: get_fields(CONFIG[ORG_CONFIG_KEY]),
+}
+
 def main():
     args = parse_arguments()
-    MODE_CALLBACK[args.mode](args.term, args.field)
+    if args.term is None and args.field is None:
+        print('Please provide search term!')
+        print('For fine grained, you can filter by the specific fields below:')
+        print(DESCRIBE_CALLBACKS[args.mode]())
+    else:
+        MODE_CALLBACK[args.mode](args.term, args.field)
