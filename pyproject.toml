@@ -22,6 +22,7 @@ autopep8 = "^1.6.0"
 yapf = "^0.32.0"
 jsonlint = "^0.1"
 prettier = "^0.0.7"
+pytest = "^7.1.2"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
