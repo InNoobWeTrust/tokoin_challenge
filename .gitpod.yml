@@ -1,9 +1,7 @@
 # Commands to start on workspace startup
 tasks:
-  - init: |
-      pip install poetry pytest
+  - command: |
+      pip install poetry
       poetry install
       poetry shell
-    command: |
-      pytest -s -v
 
