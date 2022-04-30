@@ -16,8 +16,10 @@ Data searching challenge.
 
 - Stream file content line by line
 - On open bracket, begin storing values in temporary object store in memory
-- Check for value matching with search term when iterating each line. If yes raise a flag so that object will be printed
-- On closing bracket, if the flag is raise, print the object in memory. And either printing object or not, clear memory to process new object
+- On closing of bracket yield the corresponding model object
+- Check for value matching with search term when iterating each object
+- Matched object will be populated with additional metadata from relation with other data
+- Print the populated objects and skip the unmatched ones
 - On closing square bracket, stop processing
 
 ## Error logging
