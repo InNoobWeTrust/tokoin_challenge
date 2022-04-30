@@ -11,13 +11,13 @@ class Organization(BaseModel, NameMixin):
         super().__init__(obj)
 
     def add_ticket_subject(self, subject):
-        if self.data[TICKET_SUBJECT_KEY] is None:
+        if self.data.get(TICKET_SUBJECT_KEY) is None:
             self.data[TICKET_SUBJECT_KEY] = [subject, ]
         else:
             self.data[TICKET_SUBJECT_KEY].append(subject)
 
     def add_user_name(self, name: str):
-        if self.data[USER_NAME_KEY] is None:
+        if self.data.get(USER_NAME_KEY) is None:
             self.data[USER_NAME_KEY] = [name,]
         else:
             self.data[USER_NAME_KEY].append(name)

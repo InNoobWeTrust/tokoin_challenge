@@ -16,16 +16,16 @@ class Ticket(BaseModel):
         super().__init__(obj)
 
     @property
-    def submitter_ref(self) -> int:
-        return self.data[SUBMITTER_ID_KEY]
+    def submitter_ref(self) -> int or None:
+        return self.data.get(SUBMITTER_ID_KEY)
 
     @property
-    def assignee_ref(self) -> int:
-        return self.data[ASSIGNEE_ID_KEY]
+    def assignee_ref(self) -> int or None:
+        return self.data.get(ASSIGNEE_ID_KEY)
 
     @property
-    def org_ref(self) -> int:
-        return self.data[ORG_ID_KEY]
+    def org_ref(self) -> int or None:
+        return self.data.get(ORG_ID_KEY)
 
     @property
     def subject(self) -> str:
@@ -33,14 +33,14 @@ class Ticket(BaseModel):
 
     @property
     def is_submitter_set(self) -> bool:
-        return self.data.get(SUBMITTER_NAME_KEY) is not None
+        return self.submitter_ref is None or self.data.get(SUBMITTER_NAME_KEY) is not None
 
     def set_submitter_name(self, name: str):
         self._data[SUBMITTER_NAME_KEY] = name
 
     @property
     def is_assignee_set(self) -> bool:
-        return self.data.get(ASSIGNEE_NAME_KEY) is not None
+        return self.assignee_ref is None or self.data.get(ASSIGNEE_NAME_KEY) is not None
 
     def set_assignee_name(self, name: str):
         self._data[ASSIGNEE_NAME_KEY] = name

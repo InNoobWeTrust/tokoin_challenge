@@ -10,9 +10,9 @@ def is_deep_contain(obj: Union[Dict, List], search_term: Union[str, int, bool]) 
     values = list(obj.values()) if isinstance(obj, dict) else obj
     for v in values:
         if _is_value_type(v):
-            print(f'checking: {v} - {search_term}')
+            # print(f'checking: {v} - {search_term}')
             if v == search_term:
-                print(f'Found!')
+                # print(f'Found!')
                 return True
         else:
             if is_deep_contain(v, search_term):
@@ -25,8 +25,8 @@ def is_field_contain(obj: Dict, field: str, search_term: Union[str, int, bool]) 
     Find object whose specified field match search_term
     '''
     for k, v in obj.items():
-        print(f'checking: ({k}: {v}) == "({field}: {search_term})"?')
+        # print(f'checking: ({k}: {v}) == "({field}: {search_term})"?')
         if k == field and v == search_term:
-            print(f'Found!')
+            # print(f'Found!')
             return True
     return False

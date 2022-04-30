@@ -44,22 +44,25 @@ def search_user_stream(matcher: Callable[[User], bool]) -> Iterator[User]:
     )
 
 def fill_user_metadata(usr: User) -> User:
-    for org in STREAM_PROVIDERS[ORG_STREAM_KEY]():
-        '''
-        Find single organization that the user belongs to
-        '''
-        if org.id == usr.org_ref:
-            usr.set_org_name(org.data[NAME_KEY])
-            break
+    if usr.org_ref is not None:
+        for org in STREAM_PROVIDERS[ORG_STREAM_KEY]():
+            '''
+            Find single organization that the user belongs to
+            '''
+            if org.id == usr.org_ref:
+                usr.set_org_name(org.data[NAME_KEY])
+                break
 
     for ticket in STREAM_PROVIDERS[TICKET_STREAM_KEY]():
         '''
         Find related tickets
         Multiple tickets, so bottle neck happens here
+
+        Note: Ticket may not have submitter or assignee
         '''
-        if ticket.data[SUBMITTER_ID_KEY] == usr.id:
+        if ticket.data.get(SUBMITTER_ID_KEY) == usr.id:
             usr.add_submitted_ticket(ticket.data[SUBJECT_KEY])
-        if ticket.data[ASSIGNEE_ID_KEY] == usr.id:
+        if ticket.data.get(ASSIGNEE_ID_KEY) == usr.id:
             usr.add_assigned_ticket(ticket.data[SUBJECT_KEY])
 
     return usr
@@ -78,16 +81,17 @@ def fill_ticket_metadata(ticket: Ticket) -> Ticket:
         if ticket.is_submitter_set and ticket.is_assignee_set:
             # Only 1 submitter and 1 assignee
             break
-        if usr.id == ticket.submitter_ref:
+        if ticket.submitter_ref is not None and ticket.submitter_ref == usr.id:
             ticket.set_submitter_name(usr.name)
-        if usr.id == ticket.assignee_ref:
+        if ticket.assignee_ref is not None and ticket.assignee_ref == usr.id:
             ticket.set_assignee_name(usr.name)
 
-    for org in STREAM_PROVIDERS[ORG_STREAM_KEY]():
-        if org.id == ticket.org_ref:
-            # Only 1 organization
-            ticket.set_org_name(org.name)
-            break
+    if ticket.org_ref is not None:
+        for org in STREAM_PROVIDERS[ORG_STREAM_KEY]():
+            if org.id == ticket.org_ref:
+                # Only 1 organization
+                ticket.set_org_name(org.name)
+                break
 
     return ticket
 

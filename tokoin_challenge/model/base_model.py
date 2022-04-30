@@ -17,5 +17,5 @@ class BaseModel:
             raise Exception('Not initialized with correct data')
         return self._data
 
-    def __repr__(self):
-        return pformat(self._data, indent=4)
+    def __repr__(self) -> str:
+        return pformat(self._data, indent=4, compact=False, sort_dicts=True)
