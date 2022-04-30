@@ -6,5 +6,3 @@ def peekline(file_handle: TextIOWrapper) -> str:
     line = file_handle.readline()
     file_handle.seek(pos)
     return line
-
-

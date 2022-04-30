@@ -8,7 +8,9 @@ ORG_NAME_KEY = 'organization_name'
 ASSIGNED_TICKET_KEY = 'assigned_ticket'
 SUBMITTED_TICKET_KEY = 'submitted_subject'
 
+
 class User(BaseModel, NameMixin):
+
     def __init__(self, obj: Dict) -> None:
         super().__init__(obj)
 
@@ -21,12 +23,16 @@ class User(BaseModel, NameMixin):
 
     def add_assigned_ticket(self, subject: str):
         if self.data.get(ASSIGNED_TICKET_KEY) is None:
-            self.data[ASSIGNED_TICKET_KEY] = [subject,]
+            self.data[ASSIGNED_TICKET_KEY] = [
+                subject,
+            ]
         else:
             self.data[ASSIGNED_TICKET_KEY].append(subject)
 
     def add_submitted_ticket(self, subject: str):
         if self.data.get(SUBMITTED_TICKET_KEY) is None:
-            self.data[SUBMITTED_TICKET_KEY] = [subject,]
+            self.data[SUBMITTED_TICKET_KEY] = [
+                subject,
+            ]
         else:
             self.data[SUBMITTED_TICKET_KEY].append(subject)

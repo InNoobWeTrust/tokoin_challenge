@@ -1,5 +1,6 @@
 from .config import read_config
 
+
 def test_read_config():
     conf = read_config()
     print(conf)

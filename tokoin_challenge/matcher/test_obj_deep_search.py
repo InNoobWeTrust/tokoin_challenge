@@ -1,6 +1,5 @@
 from tokoin_challenge.matcher.obj_deep_search import is_deep_contain
 
-
 dummy_obj = {
     "_id": 1,
     "url": "http://initech.tokoin.io.com/api/v2/users/1.json",
@@ -18,15 +17,11 @@ dummy_obj = {
     "phone": "8335-422-718",
     "signature": "Don't Worry Be Happy!",
     "organization_id": 119,
-    "tags": [
-        "Springville",
-        "Sutton",
-        "Hartsville/Hartley",
-        "Diaperville"
-    ],
+    "tags": ["Springville", "Sutton", "Hartsville/Hartley", "Diaperville"],
     "suspended": True,
     "role": "admin"
 }
+
 
 def test_deep_contain():
     for term in [

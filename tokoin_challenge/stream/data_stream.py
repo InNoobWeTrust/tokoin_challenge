@@ -12,27 +12,29 @@ def obj_streamer(data_path: str) -> Iterator[Dict]:
             if '{' in line:
                 yield collect_obj(f)
 
+
 def get_fields(data_path: str) -> List[str]:
-    obj: Dict = next(obj_streamer(data_path)) # We know this is absolutely a dict
+    obj: Dict = next(
+        obj_streamer(data_path))  # We know this is absolutely a dict
 
     return list(obj.keys())
 
+
 def get_filterable_fields(data_path: str) -> List[str]:
-    obj: Dict = next(obj_streamer(data_path)) # We know this is absolutely a dict
+    obj: Dict = next(
+        obj_streamer(data_path))  # We know this is absolutely a dict
 
-    return [key
-            for key, value in obj.items()
+    return [
+        key for key, value in obj.items()
+        if isinstance(value, int) or isinstance(value, bool)
+    ]
 
-            if isinstance(value, int)
-            or isinstance(value, bool)
-            ]
 
 def get_searchable_fields(data_path: str) -> List[str]:
-    obj: Dict = next(obj_streamer(data_path)) # We know this is absolutely a dict
+    obj: Dict = next(
+        obj_streamer(data_path))  # We know this is absolutely a dict
 
-    return [key
-            for key, value in obj.items()
-
-            if not isinstance(value, int)
-            and not isinstance(value, bool)
-            ]
+    return [
+        key for key, value in obj.items()
+        if not isinstance(value, int) and not isinstance(value, bool)
+    ]

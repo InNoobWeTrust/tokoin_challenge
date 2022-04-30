@@ -3,5 +3,7 @@ tasks:
   - init: |
       pip install poetry pytest
       poetry install
-    command: poetry run pytest -s -v
+      poetry shell
+    command: |
+      pytest -s -v
 

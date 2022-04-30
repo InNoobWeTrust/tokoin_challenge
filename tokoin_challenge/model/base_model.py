@@ -1,9 +1,11 @@
-from typing import Dict
 from pprint import pformat
+from typing import Dict
 
-ID_KEY = '_id'
+ID_KEY = "_id"
+
 
 class BaseModel:
+
     def __init__(self, obj: Dict) -> None:
         self._data = obj
 
@@ -14,7 +16,8 @@ class BaseModel:
     @property
     def data(self) -> Dict:
         if not self._data:
-            raise Exception('Not initialized with correct data')
+            raise Exception("Not initialized with correct data")
+
         return self._data
 
     def __repr__(self) -> str:

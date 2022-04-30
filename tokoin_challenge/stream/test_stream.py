@@ -4,7 +4,6 @@ from unittest.mock import mock_open, patch
 
 from tokoin_challenge.stream.data_stream import get_fields, obj_streamer
 
-
 dummy_data = '''
 [
   {
@@ -37,7 +36,9 @@ dummy_data = '''
 '''
 
 m = mock_open()
-m.side_effect = lambda _file_name, _mode: TextIOWrapper(BytesIO(bytes(dummy_data, 'utf-8')))
+m.side_effect = lambda _file_name, _mode: TextIOWrapper(
+    BytesIO(bytes(dummy_data, 'utf-8')))
+
 
 @patch('builtins.open', m)
 def test_obj_streamer():
@@ -60,15 +61,11 @@ def test_obj_streamer():
         "phone": "8335-422-718",
         "signature": "Don't Worry Be Happy!",
         "organization_id": 119,
-        "tags": [
-          "Springville",
-          "Sutton",
-          "Hartsville/Hartley",
-          "Diaperville"
-        ],
+        "tags": ["Springville", "Sutton", "Hartsville/Hartley", "Diaperville"],
         "suspended": True,
         "role": "admin"
     }
+
 
 @patch('builtins.open', m)
 def test_get_fields():
@@ -95,4 +92,3 @@ def test_get_fields():
         "suspended",
         "role",
     ]
-

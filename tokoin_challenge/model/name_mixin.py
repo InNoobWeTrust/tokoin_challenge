@@ -1,7 +1,8 @@
+NAME_KEY = "name"
 
-NAME_KEY = 'name'
 
 class NameMixin:
+
     @property
     def name(self) -> str:
-        return self.__dict__['_data'][NAME_KEY]
+        return self.__dict__["_data"][NAME_KEY]

@@ -1,7 +1,10 @@
 from typing import Dict, List, Union
 
+
 def _is_value_type(value) -> bool:
-    return isinstance(value, str) or isinstance(value, int) or isinstance(value, bool)
+    return isinstance(value, str) or isinstance(value, int) or isinstance(
+        value, bool)
+
 
 def is_deep_contain(obj: Union[Dict, List], search_term: str) -> bool:
     '''
@@ -19,6 +22,7 @@ def is_deep_contain(obj: Union[Dict, List], search_term: str) -> bool:
                 return True
 
     return False
+
 
 def is_field_contain(obj: Dict, field: str, search_term: str) -> bool:
     '''
