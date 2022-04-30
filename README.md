@@ -18,12 +18,15 @@ Data searching challenge.
 - On closing bracket, if the flag is raise, print the object in memory. And either printing object or not, clear memory to process new object
 - On closing square bracket, stop processing
 
-# Commandline interface (TUI)
+## Error logging
+**TODO**: Setup python logger to report logs to file and also on stdout
+
+## Commandline interface (TUI)
 - For fantastic TUI, [pytermgui](https://github.com/bczsalba/pytermgui) is chosen.
 
 ## Testing
 
-```python3
+```bash
 poetry install
 poetry run pytest -s -v
 ```
