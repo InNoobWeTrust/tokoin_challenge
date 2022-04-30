@@ -5,7 +5,7 @@ description = ""
 authors = ["InNoobWeTrust <vu.truong.16193@gmail.com>"]
 
 [tool.poetry.scripts]
-simple = "tokoin_challenge.main:main"
+search = "tokoin_challenge.main:main"
 
 [tool.poetry.dependencies]
 python = "^3.8"

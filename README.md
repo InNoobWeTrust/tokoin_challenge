@@ -21,12 +21,34 @@ Data searching challenge.
 ## Error logging
 **TODO**: Setup python logger to report logs to file and also on stdout
 
+## Commandline
+Usage follow the principle of normal *NIX commandline tools
+
+```shell
+❯ poetry run search -h
+
+Successfully set up prettification!
+> All function returns will now be pretty-printed,
+
+'[245 italic]Including [/italic 210]Markup!'
+
+usage: search [-h] -m {user,ticket,organization} -s TERM [-f FIELD]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -m {user,ticket,organization}, --mode {user,ticket,organization}
+                        Search mode
+  -s TERM, --term TERM  Search term
+  -f FIELD, --field FIELD
+                        Field to search for
+```
+
 ## Commandline interface (TUI)
 - For fantastic TUI, [pytermgui](https://github.com/bczsalba/pytermgui) is chosen.
 
 ## Testing
 
-```bash
+```shell
 poetry install
 poetry run pytest -s -v
 ```
