@@ -21,7 +21,7 @@ Data searching challenge.
 ## Error logging
 **TODO**: Setup python logger to report logs to file and also on stdout
 
-## Commandline
+## Running
 Usage follow the principle of normal *NIX commandline tools
 
 ```shell
@@ -80,6 +80,8 @@ Successfully set up prettification!
 
 ## Commandline interface (TUI)
 - For fantastic TUI, [pytermgui](https://github.com/bczsalba/pytermgui) is chosen.
+
+**TODO**: make a TUI so that user can have master-detail view layout (to load metadata to show on demand)
 
 ## Testing
 
