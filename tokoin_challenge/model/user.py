@@ -5,8 +5,8 @@ from tokoin_challenge.model.name_mixin import NameMixin
 
 ORG_ID_KEY = 'organization_id'
 ORG_NAME_KEY = 'organization_name'
-ASSIGNED_TICKET_KEY = 'assigned_ticket'
-SUBMITTED_TICKET_KEY = 'submitted_subject'
+ASSIGNED_TICKET_KEY = 'assigned_tickets'
+SUBMITTED_TICKET_KEY = 'submitted_tickets'
 
 
 class User(BaseModel, NameMixin):
