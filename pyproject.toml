@@ -9,6 +9,7 @@ search = "tokoin_challenge.search:main"
 
 [tool.poetry.dependencies]
 python = "^3.8"
+pytermgui = "^5.0.0"
 
 [tool.poetry.dev-dependencies]
 jedi-language-server = "^0.35.1"

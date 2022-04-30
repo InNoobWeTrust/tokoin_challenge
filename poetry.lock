@@ -374,6 +374,14 @@ all = ["twine (>=3.4.1)"]
 dev = ["twine (>=3.4.1)"]
 
 [[package]]
+name = "pytermgui"
+version = "5.0.0"
+description = "A simple and robust terminal UI library, written in Python."
+category = "main"
+optional = false
+python-versions = ">=3.7.0"
+
+[[package]]
 name = "six"
 version = "1.16.0"
 description = "Python 2 and 3 compatibility utilities"
@@ -463,7 +471,7 @@ python-versions = "*"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "0a68a9c48b5aa2e5ec18f072047c80a1c27db56d742814cff945ec2fc546f65b"
+content-hash = "6f2c6acf51490e2d753bcfa0b55af4ee6d5e224d50ed653b46bca5f41b2fdeb9"
 
 [metadata.files]
 appnope = [
@@ -651,6 +659,9 @@ pygments = [
 pyright = [
     {file = "pyright-1.1.241-py3-none-any.whl", hash = "sha256:2c3778220f6285b330df7e4875af6ac453118c63b79d75828be57bf7ff17f886"},
     {file = "pyright-1.1.241.tar.gz", hash = "sha256:8a61266da68aa8f5b1248266472003b09866898377a06def32bce22409af39e1"},
+]
+pytermgui = [
+    {file = "pytermgui-5.0.0.tar.gz", hash = "sha256:b19d366f61797ac55e31aa40dfbcfdc6735954f0108c0fcc41346cedfb6005b2"},
 ]
 six = [
     {file = "six-1.16.0-py2.py3-none-any.whl", hash = "sha256:8abb2f1d86890a2dfb989f9a77cfcfd3e47c2a354b01111771326f8aa26e0254"},
