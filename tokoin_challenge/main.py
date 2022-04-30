@@ -1,7 +1,6 @@
 from argparse import ArgumentParser, Namespace
 from typing import Callable, Dict, List
 from pytermgui.pretty import print
-from tokoin_challenge import config
 from tokoin_challenge.config.config import CONFIG, ORG_CONFIG_KEY, TICKET_CONFIG_KEY, USER_CONFIG_KEY
 from tokoin_challenge.matcher.obj_deep_search import is_deep_contain, is_field_contain
 from tokoin_challenge.search.search_user import fill_org_meta_data, fill_ticket_metadata, fill_user_metadata, search_org_stream, search_ticket_stream, search_user_stream
@@ -24,6 +23,7 @@ def search_user(search_term: str, field: str):
         usr.data,
         search_term=search_term,
     )
+
     if field is not None:
         matcher = lambda usr: is_field_contain(
             usr.data,
@@ -39,6 +39,7 @@ def search_ticket(search_term: str, field: str):
         ticket.data,
         search_term=search_term,
     )
+
     if field is not None:
         matcher = lambda ticket: is_field_contain(
             ticket.data,
@@ -54,6 +55,7 @@ def search_organization(search_term: str, field: str):
         org.data,
         search_term=search_term,
     )
+
     if field is not None:
         matcher = lambda org: is_field_contain(
             org.data,
@@ -77,6 +79,7 @@ DESCRIBE_CALLBACKS: Dict[str, Callable[[], List[str]]] = {
 
 def main():
     args = parse_arguments()
+
     if args.term is None and args.field is None:
         print('Please provide search term!')
         print('For fine grained, you can filter by the specific fields below:')

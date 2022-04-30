@@ -7,6 +7,7 @@ def read_config(path: str or PathLike = config_path) -> Dict[str, str]:
     data = {}
     with open(path, 'r') as conf:
         conf.readline() # Skip line with `[Data]`
+
         for _ in range(3):
             k, v = conf.readline().split(' = ')
             # Store parsed result
