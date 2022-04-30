@@ -21,6 +21,18 @@ Data searching challenge.
 ## Error logging
 **TODO**: Setup python logger to report logs to file and also on stdout
 
+## Development
+
+Install the project with poetry and start a shell
+
+```shell
+pip install --user poetry
+poetry install
+poetry shell
+```
+
+Then just start development inside the virtual environment that poetry created
+
 ## Running
 Usage follow the principle of normal *NIX commandline tools
 
@@ -88,6 +100,14 @@ Successfully set up prettification!
 ```shell
 poetry install
 poetry run pytest -s -v
+```
+
+## Building
+
+With `poetry`, building python package is simple
+
+```shell
+poetry build
 ```
 
 ## Possible improvements:
