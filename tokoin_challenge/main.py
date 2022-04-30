@@ -3,7 +3,7 @@ from typing import Callable, Dict, List
 from pytermgui.pretty import print
 from tokoin_challenge.config.config import CONFIG, ORG_CONFIG_KEY, TICKET_CONFIG_KEY, USER_CONFIG_KEY
 from tokoin_challenge.matcher.obj_deep_search import is_deep_contain, is_field_contain
-from tokoin_challenge.search.search_user import fill_org_meta_data, fill_ticket_metadata, fill_user_metadata, search_org_stream, search_ticket_stream, search_user_stream
+from tokoin_challenge.search.search import fill_org_meta_data, fill_ticket_metadata, fill_user_metadata, search_org_stream, search_ticket_stream, search_user_stream
 from tokoin_challenge.stream.data_stream import get_fields
 
 
