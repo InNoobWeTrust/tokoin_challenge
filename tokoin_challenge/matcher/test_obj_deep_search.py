@@ -30,7 +30,7 @@ dummy_obj = {
 
 def test_deep_contain():
     for term in [
-            1,
+            '1',
             'http://initech.tokoin.io.com/api/v2/users/1.json',
             '74341f74-9c79-49d5-9611-87ef9b6eb75f',
             'Miss Coffey',
@@ -39,6 +39,6 @@ def test_deep_contain():
             '8335-422-718',
             "Don't Worry Be Happy!",
             'Springville',
-            True,
+            'True',
     ]:
         assert is_deep_contain(dummy_obj, term)
