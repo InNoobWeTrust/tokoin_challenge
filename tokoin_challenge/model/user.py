@@ -1,6 +1,7 @@
 from typing import Dict
 
-from . import BaseModel, NameMixin
+from tokoin_challenge.model.base_model import BaseModel
+from tokoin_challenge.model.name_mixin import NameMixin
 
 ORG_ID_KEY = 'organization_id'
 ORG_NAME_KEY = 'organization_name'

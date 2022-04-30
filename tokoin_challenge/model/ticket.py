@@ -1,6 +1,7 @@
 from typing import Dict
 
-from . import BaseModel
+from tokoin_challenge.model.base_model import BaseModel
+
 
 SUBMITTER_ID_KEY = 'submitter_id'
 ASSIGNEE_ID_KEY = 'assignee_id'
@@ -11,23 +12,20 @@ ORG_NAME_KEY = 'organization_name'
 SUBJECT_KEY = 'subject'
 
 class Ticket(BaseModel):
-    def __init__(self, obj: Dict) -> None:
+    def __init__(self, obj: Dict):
         super().__init__(obj)
 
     @property
-    def submitter_ref(self) -> int | None:
-        if self._data:
-            return self._data[SUBMITTER_ID_KEY]
+    def submitter_ref(self) -> int:
+        return self.data[SUBMITTER_ID_KEY]
 
     @property
-    def assignee_ref(self) -> int | None:
-        if self._data:
-            return self._data[ASSIGNEE_ID_KEY]
+    def assignee_ref(self) -> int:
+        return self.data[ASSIGNEE_ID_KEY]
 
     @property
-    def org_ref(self) -> int | None:
-        if self._data:
-            return self._data[ORG_ID_KEY]
+    def org_ref(self) -> int:
+        return self.data[ORG_ID_KEY]
 
     @property
     def subject(self) -> str:

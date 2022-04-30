@@ -11,8 +11,8 @@ from tokoin_challenge.stream.data_stream import obj_streamer
 _conf = read_config()
 
 USER_STREAM_KEY = 'user'
-TICKET_STREAM_KEY = 'user'
-ORG_STREAM_KEY = 'user'
+TICKET_STREAM_KEY = 'ticket'
+ORG_STREAM_KEY = 'org'
 
 SUBMITTER_ID_KEY = 'submitter_id'
 ASSIGNEE_ID_KEY = 'assignee_id'

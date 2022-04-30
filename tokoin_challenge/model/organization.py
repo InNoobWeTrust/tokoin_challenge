@@ -1,7 +1,7 @@
 from typing import Dict
-from pprint import pformat
 
-from . import BaseModel, NameMixin
+from tokoin_challenge.model.base_model import BaseModel
+from tokoin_challenge.model.name_mixin import NameMixin
 
 USER_NAME_KEY = 'users'
 TICKET_SUBJECT_KEY = 'tickets'

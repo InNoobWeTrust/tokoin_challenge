@@ -1,6 +1,8 @@
 from argparse import ArgumentParser, Namespace
 from typing import Callable, Dict
-from pytermgui.pretty import pprint
+from pytermgui.pretty import print
+from tokoin_challenge.matcher.obj_deep_search import is_deep_contain, is_field_contain
+from tokoin_challenge.search.search_user import fill_user_metadata, search_user_stream
 
 
 def parse_arguments() -> Namespace:
@@ -14,13 +16,17 @@ def parse_arguments() -> Namespace:
     return parser.parse_args()
 
 def search_user(seach_term: str, field: str):
-    pprint(f'Searching users with (term: {seach_term}, field: {field})...')
+    print(f'Searching users with (term: {seach_term}, field: {field})...')
+
+    for usr in search_user_stream(lambda usr: is_field_contain(usr.data, field=field, search_term=seach_term)):
+        print(usr)
+        print(f'With metadata:\n{fill_user_metadata(usr)}')
 
 def search_ticket(seach_term: str, field: str):
-    pprint(f'Searching tickets with (term: {seach_term}, field: {field})...')
+    print(f'Searching tickets with (term: {seach_term}, field: {field})...')
 
 def search_organization(seach_term: str, field: str):
-    pprint(f'Searching organizations with (term: {seach_term}, field: {field})...')
+    print(f'Searching organizations with (term: {seach_term}, field: {field})...')
 
 MODE_CALLBACK: Dict[str, Callable[[str, str],None]] = {
     'user': search_user,

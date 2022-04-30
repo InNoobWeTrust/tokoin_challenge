@@ -25,7 +25,7 @@ def is_field_contain(obj: Dict, field: str, search_term: Union[str, int, bool]) 
     Find object whose specified field match search_term
     '''
     for k, v in obj.items():
-        print(f'checking: ({k}: {v}) == "{search_term}"?')
+        print(f'checking: ({k}: {v}) == "({field}: {search_term})"?')
         if k == field and v == search_term:
             print(f'Found!')
             return True
